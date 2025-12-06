@@ -5,9 +5,11 @@
   <title>Бауржан & Медина — 08.08.2026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Свадебное приглашение Бауржана и Медины — 08.08.2026, Алматы, ресторан Император." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #f5f2ec;
@@ -26,15 +28,73 @@
       padding: 0;
     }
 
+    /* ----------------------------------------------------------------------------
+       BACKGROUND — MATCH PINTEREST STYLE + GOLD SHIMMER
+    ---------------------------------------------------------------------------- */
+
     body {
       font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #fdfbf7 0, #f5f2ec 45%, #eee7dc 100%);
+      background: linear-gradient(135deg, #fff7f0 0%, #fcefe4 45%, #f7e4d8 70%, #eed7ca 100%);
       color: var(--text-main);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       padding: 32px 16px;
+      position: relative;
+      overflow: hidden;
     }
+
+    /* Soft peach glowing blobs */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -10%;
+      left: -10%;
+      width: 140%;
+      height: 140%;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255, 215, 185, 0.45), transparent 55%),
+        radial-gradient(circle at 80% 20%, rgba(255, 225, 200, 0.38), transparent 60%),
+        radial-gradient(circle at 50% 70%, rgba(255, 200, 160, 0.33), transparent 60%),
+        radial-gradient(circle at 85% 85%, rgba(255, 240, 220, 0.42), transparent 65%);
+      filter: blur(40px);
+      z-index: -3;
+      pointer-events: none;
+    }
+
+    /* Paper texture */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAQAAAC1+jfqAAAAGUlEQVR42u3BAQ0AAADCoPdPbQ43oAAAAAAAAAB4N2ECAAGe0jgAAAAASUVORK5CYII=') repeat;
+      opacity: 0.12;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* GOLD SHIMMER LAYER — animated subtle sparkle */
+    .gold-shimmer {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(255, 215, 140, 0.18), transparent 65%),
+        radial-gradient(circle at 70% 60%, rgba(255, 200, 120, 0.15), transparent 70%),
+        radial-gradient(circle at 50% 80%, rgba(255, 235, 180, 0.20), transparent 70%);
+      mix-blend-mode: soft-light;
+      animation: shimmerMove 12s ease-in-out infinite alternate;
+      opacity: 0.45;
+      filter: blur(28px);
+    }
+
+    @keyframes shimmerMove {
+      0% { transform: translate(-20px, -10px) scale(1); }
+      100% { transform: translate(20px, 10px) scale(1.05); }
+    }
+
+    /* ---------------------------------------------------------------------------- */
 
     .container {
       max-width: 900px;
@@ -343,12 +403,6 @@
       color: var(--text-muted);
     }
 
-    .rsvp-text {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-    }
-
     footer {
       margin-top: 22px;
       text-align: center;
@@ -359,7 +413,6 @@
     }
 
     .names-sign {
-      font-family: "Montserrat", system-ui;
       font-size: 16px;
       margin-bottom: 4px;
     }
@@ -370,7 +423,12 @@
     }
   </style>
 </head>
+
 <body>
+
+  <!-- GOLD SHIMMER LAYER -->
+  <div class="gold-shimmer"></div>
+
   <div class="container">
     <div class="decor-circle one"></div>
     <div class="decor-circle two"></div>
@@ -387,7 +445,6 @@
     </header>
 
     <main>
-      <!-- Левая колонка: детали и таймлайн -->
       <section class="card">
         <div class="card-title">Детали дня</div>
 
@@ -416,14 +473,8 @@
             Ресторан <strong>«Император»</strong><br />
             г. Алматы
             <div class="buttons-row">
-              <a
-                href="https://go.2gis.com/LAN2p"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-outline"
-              >
-                <span class="btn-icon">📍</span>
-                <span>Открыть на карте</span>
+              <a href="https://go.2gis.com/LAN2p" target="_blank" class="btn btn-outline">
+                <span class="btn-icon">📍</span> Открыть на карте
               </a>
             </div>
           </div>
@@ -432,9 +483,8 @@
         <div class="info-row">
           <div class="info-label">Дресс-код</div>
           <div class="info-value">
-            Мы будем рады, если вы поддержите мягкую, праздничную атмосферу вечера:
-            светлые, элегантные образы.
-            <div class="event-note">Цвета вечера: белый, бежевый, молочный, пастельные оттенки.</div>
+            Светлые, элегантные образы.  
+            <div class="event-note">Белый, бежевый, молочный, пастельные оттенки.</div>
           </div>
         </div>
 
@@ -443,7 +493,7 @@
             <span class="time">16:00</span>
             <div class="event">
               <div class="event-title">Сбор гостей</div>
-              <div class="event-note">Welcome-зона, фотограф, лёгкие напитки.</div>
+              <div class="event-note">Welcome-зона, фотограф, напитки.</div>
             </div>
           </li>
           <li>
@@ -457,33 +507,20 @@
             <span class="time">после</span>
             <div class="event">
               <div class="event-title">Праздник продолжается</div>
-              <div class="event-note">Музыка, танцы и много тёплых моментов до позднего вечера.</div>
+              <div class="event-note">Музыка, танцы и тёплая атмосфера.</div>
             </div>
           </li>
         </ul>
       </section>
 
-      <!-- Правая колонка: таймер и RSVP -->
       <section class="card">
         <div class="card-title">До нашей встречи</div>
 
         <div class="countdown" id="countdown">
-          <div class="count-item">
-            <div class="count-number" id="days">—</div>
-            <div class="count-label">Дней</div>
-          </div>
-          <div class="count-item">
-            <div class="count-number" id="hours">—</div>
-            <div class="count-label">Часов</div>
-          </div>
-          <div class="count-item">
-            <div class="count-number" id="minutes">—</div>
-            <div class="count-label">Минут</div>
-          </div>
-          <div class="count-item">
-            <div class="count-number" id="seconds">—</div>
-            <div class="count-label">Секунд</div>
-          </div>
+          <div class="count-item"><div class="count-number" id="days">—</div><div class="count-label">Дней</div></div>
+          <div class="count-item"><div class="count-number" id="hours">—</div><div class="count-label">Часов</div></div>
+          <div class="count-item"><div class="count-number" id="minutes">—</div><div class="count-label">Минут</div></div>
+          <div class="count-item"><div class="count-number" id="seconds">—</div><div class="count-label">Секунд</div></div>
         </div>
 
         <p class="small-muted" id="countdown-note">
@@ -493,29 +530,18 @@
         <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.04); margin: 16px 0 14px;" />
 
         <div class="card-title">RSVP</div>
-        <p class="rsvp-text">
-          Пожалуйста, сообщите нам о своём участии и количестве гостей.  
-          Это поможет нам всё лучше организовать.
+        <p class="small-muted">
+          Пожалуйста, подтвердите участие в WhatsApp.  
         </p>
 
-        <!-- 
-          ВАЖНО:
-          ЗАМЕНИТЕ 77001234567 В ССЫЛКЕ НИЖЕ НА СВОЙ НОМЕР WHATSAPP 
-          В ФОРМАТЕ: 7XXXXXXXXXX (БЕЗ ПЛЮСА, ПРОБЕЛОВ И СКОБОК)
-        -->
+        <!-- ЗАМЕНИ НОМЕР НИЖЕ НА СВОЙ -->
         <a
-          href="https://wa.me/77027143039?text=Здравствуйте,%20я%20по%20поводу%20свадьбы%20Бауржана%20и%20Медины%20(08.08.2026)."
+          href="https://wa.me/77001234567?text=Здравствуйте,%20я%20по%20поводу%20свадьбы%20Бауржана%20и%20Медины%20(08.08.2026)."
           class="btn btn-primary"
           target="_blank"
-          rel="noopener noreferrer"
         >
-          <span class="btn-icon">💬</span>
-          <span>Написать в WhatsApp</span>
+          💬 Написать в WhatsApp
         </a>
-
-        <p class="small-muted">
-          Если вам удобнее, вы можете просто написать сообщение с вашим именем и количеством гостей.
-        </p>
       </section>
     </main>
 
@@ -523,13 +549,13 @@
       <div class="names-sign">
         С любовью, Бауржан и Медина <span class="heart">♥</span>
       </div>
-      <div>Будем очень рады видеть вас в этот особенный день.</div>
+      <div>Мы будем рады видеть вас в этот особенный день.</div>
     </footer>
+
   </div>
 
   <script>
     (function () {
-      // Дата свадьбы — Алматы (UTC+5)
       var weddingDate = new Date("2026-08-08T16:00:00+05:00").getTime();
       var daysEl = document.getElementById("days");
       var hoursEl = document.getElementById("hours");
@@ -538,7 +564,7 @@
       var noteEl = document.getElementById("countdown-note");
 
       function updateCountdown() {
-        var now = new Date().getTime();
+        var now = Date.now();
         var diff = weddingDate - now;
 
         if (diff <= 0) {
@@ -546,19 +572,14 @@
           hoursEl.textContent = "0";
           minutesEl.textContent = "0";
           secondsEl.textContent = "0";
-          if (noteEl) {
-            noteEl.textContent = "Этот день уже наступил — спасибо, что были с нами.";
-          }
+          noteEl.textContent = "Этот день уже наступил — благодарим, что были с нами.";
           return;
         }
 
         var seconds = Math.floor(diff / 1000);
-        var days = Math.floor(seconds / (3600 * 24));
-        seconds -= days * 3600 * 24;
-        var hours = Math.floor(seconds / 3600);
-        seconds -= hours * 3600;
-        var minutes = Math.floor(seconds / 60);
-        seconds -= minutes * 60;
+        var days = Math.floor(seconds / 86400); seconds -= days * 86400;
+        var hours = Math.floor(seconds / 3600); seconds -= hours * 3600;
+        var minutes = Math.floor(seconds / 60); seconds -= minutes * 60;
 
         daysEl.textContent = days;
         hoursEl.textContent = hours;
@@ -570,5 +591,6 @@
       setInterval(updateCountdown, 1000);
     })();
   </script>
+
 </body>
 </html>
