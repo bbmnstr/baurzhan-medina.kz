@@ -12,14 +12,10 @@
 
   <style>
     :root {
-      --bg: #f5f2ec;
-      --card: #ffffff;
       --accent: #c2a36b;
-      --accent-soft: rgba(194, 163, 107, 0.1);
+      --accent-soft: rgba(194, 163, 107, 0.12);
       --text-main: #222222;
       --text-muted: #777777;
-      --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.08);
-      --radius-xl: 24px;
     }
 
     * {
@@ -28,41 +24,36 @@
       padding: 0;
     }
 
-    /* ----------------------------------------------------------------------------
-       BACKGROUND — MATCH PINTEREST STYLE + GOLD SHIMMER
-    ---------------------------------------------------------------------------- */
-
+    /* ФОН - ТВОЁ ФОТО */
     body {
       font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(135deg, #fff7f0 0%, #fcefe4 45%, #f7e4d8 70%, #eed7ca 100%);
-      color: var(--text-main);
       min-height: 100vh;
+      margin: 0;
+      padding: 32px 16px;
       display: flex;
       justify-content: center;
-      padding: 32px 16px;
-      position: relative;
+      color: var(--text-main);
+      background-image: url("bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       overflow: hidden;
+      position: relative;
     }
 
-    /* Soft peach glowing blobs */
+    /* Белый слой для читаемости */
     body::before {
       content: "";
       position: fixed;
-      top: -10%;
-      left: -10%;
-      width: 140%;
-      height: 140%;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(255, 215, 185, 0.45), transparent 55%),
-        radial-gradient(circle at 80% 20%, rgba(255, 225, 200, 0.38), transparent 60%),
-        radial-gradient(circle at 50% 70%, rgba(255, 200, 160, 0.33), transparent 60%),
-        radial-gradient(circle at 85% 85%, rgba(255, 240, 220, 0.42), transparent 65%);
-      filter: blur(40px);
-      z-index: -3;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(2px);
+      z-index: -2;
       pointer-events: none;
     }
 
-    /* Paper texture */
+    /* Лёгкая текстура */
     body::after {
       content: "";
       position: fixed;
@@ -73,66 +64,22 @@
       pointer-events: none;
     }
 
-    /* GOLD SHIMMER LAYER — animated subtle sparkle */
-    .gold-shimmer {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none;
-      z-index: -2;
-      background:
-        radial-gradient(circle at 30% 40%, rgba(255, 215, 140, 0.18), transparent 65%),
-        radial-gradient(circle at 70% 60%, rgba(255, 200, 120, 0.15), transparent 70%),
-        radial-gradient(circle at 50% 80%, rgba(255, 235, 180, 0.20), transparent 70%);
-      mix-blend-mode: soft-light;
-      animation: shimmerMove 12s ease-in-out infinite alternate;
-      opacity: 0.45;
-      filter: blur(28px);
-    }
-
-    @keyframes shimmerMove {
-      0% { transform: translate(-20px, -10px) scale(1); }
-      100% { transform: translate(20px, 10px) scale(1.05); }
-    }
-
-    /* ---------------------------------------------------------------------------- */
-
     .container {
       max-width: 900px;
       width: 100%;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(250, 245, 236, 0.9));
+      background: rgba(255, 255, 255, 0.7); /* 70% непрозрачность */
       border-radius: 32px;
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
       padding: 32px 20px 36px;
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(8px);
     }
 
     @media (min-width: 768px) {
       .container {
         padding: 40px 40px 46px;
       }
-    }
-
-    .decor-circle {
-      position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(194,163,107,0.35));
-      opacity: 0.2;
-      pointer-events: none;
-    }
-
-    .decor-circle.one {
-      width: 260px;
-      height: 260px;
-      top: -120px;
-      right: -80px;
-    }
-
-    .decor-circle.two {
-      width: 200px;
-      height: 200px;
-      bottom: -90px;
-      left: -70px;
     }
 
     header {
@@ -217,11 +164,11 @@
     }
 
     .card {
-      background: var(--card);
-      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.7); /* 70% непрозрачность */
+      border-radius: 24px;
       padding: 18px 18px 20px;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(10px);
     }
 
@@ -423,16 +370,8 @@
     }
   </style>
 </head>
-
 <body>
-
-  <!-- GOLD SHIMMER LAYER -->
-  <div class="gold-shimmer"></div>
-
   <div class="container">
-    <div class="decor-circle one"></div>
-    <div class="decor-circle two"></div>
-
     <header>
       <div class="label">
         <span class="label-dot"></span>
@@ -483,7 +422,7 @@
         <div class="info-row">
           <div class="info-label">Дресс-код</div>
           <div class="info-value">
-            Светлые, элегантные образы.  
+            Светлые, элегантные образы.
             <div class="event-note">Белый, бежевый, молочный, пастельные оттенки.</div>
           </div>
         </div>
@@ -527,14 +466,15 @@
           Обратный отсчёт до 08.08.2026, 16:00 (время Алматы).
         </p>
 
-        <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.04); margin: 16px 0 14px;" />
+        <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.06); margin: 16px 0 14px;" />
 
         <div class="card-title">RSVP</div>
         <p class="small-muted">
-          Пожалуйста, подтвердите участие в WhatsApp.  
+          Пожалуйста, подтвердите участие в WhatsApp.
+          
         </p>
 
-        <!-- ЗАМЕНИ НОМЕР НИЖЕ НА СВОЙ -->
+        <!-- ЗАМЕНИ НОМЕР НИЖЕ НА СВОЙ В ФОРМАТЕ 7XXXXXXXXXX -->
         <a
           href="https://wa.me/77001234567?text=Здравствуйте,%20я%20по%20поводу%20свадьбы%20Бауржана%20и%20Медины%20(08.08.2026)."
           class="btn btn-primary"
@@ -551,7 +491,6 @@
       </div>
       <div>Мы будем рады видеть вас в этот особенный день.</div>
     </footer>
-
   </div>
 
   <script>
@@ -591,6 +530,5 @@
       setInterval(updateCountdown, 1000);
     })();
   </script>
-
 </body>
 </html>
