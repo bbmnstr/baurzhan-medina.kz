@@ -3,45 +3,692 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Baurzhan & Medina</title>
+  <meta name="description" content="Свадебное приглашение Бауржана и Медины — 8 августа 2026, 16:30, банкетный зал Император." />
+  <title>Baurzhan & Medina — Wedding Invitation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
-    html, body {
+    :root {
+      --beige: #d7cfbd;
+      --beige-light: #eee7d8;
+      --dark-olive: #57513e;
+      --deep: #28251d;
+      --soft: #f6f0e2;
+      --white: #fffdf4;
+      --line: rgba(40, 37, 29, 0.24);
+      --shadow: rgba(36, 31, 21, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
       margin: 0;
-      padding: 0;
-      background: #d6cfbd;
+      background: var(--beige);
+      color: var(--deep);
+      font-family: "Courier Prime", "Courier New", monospace;
       overflow-x: hidden;
     }
 
-    .canva-site {
-      position: relative;
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    .page {
       width: 100%;
-      height: 0;
-      padding-top: 281.1127%;
-      overflow: hidden;
+      min-height: 100vh;
+      background: var(--beige);
     }
 
-    .canva-site iframe {
+    .hero {
+      position: relative;
+      min-height: 620px;
+      height: 82svh;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      overflow: hidden;
+      isolation: isolate;
+      background: #191812;
+    }
+
+    .hero::before {
+      content: "";
       position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(18, 17, 12, 0.28), rgba(18, 17, 12, 0.50)), url("assets/hero-bg.webp");
+      background-size: cover;
+      background-position: center;
+      filter: sepia(0.22) saturate(0.78) contrast(1.08);
+      z-index: -3;
+      transform: scale(1.03);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.19;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.11) 0 1px, transparent 1px),
+        radial-gradient(circle at 70% 40%, rgba(255,255,255,.08) 0 1px, transparent 1px),
+        radial-gradient(circle at 40% 80%, rgba(0,0,0,.18) 0 1px, transparent 1px);
+      background-size: 5px 5px, 7px 7px, 9px 9px;
+      mix-blend-mode: overlay;
+      z-index: -1;
+    }
+
+    .hero-content {
+      width: min(92vw, 860px);
+      text-align: center;
+      padding: 80px 18px;
+      transform: translateY(-5px);
+    }
+
+    .names {
+      font-family: "Great Vibes", "Cormorant Garamond", serif;
+      font-weight: 400;
+      font-size: clamp(58px, 11vw, 122px);
+      line-height: .92;
+      margin: 0 0 24px;
+      letter-spacing: .02em;
+      text-shadow: 0 2px 22px rgba(0,0,0,.25);
+    }
+
+    .hero-subtitle {
+      margin: 0 0 28px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(23px, 4vw, 42px);
+      line-height: 1;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 13px 26px 11px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 13px;
+      line-height: 1.1;
+      transition: transform .2s ease, background .2s ease, color .2s ease, opacity .2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+    .button.light { color: var(--white); background: rgba(255,255,255,.06); backdrop-filter: blur(4px); }
+    .button.light:hover { background: rgba(255,255,255,.18); }
+    .button.dark { color: var(--deep); background: rgba(255,255,255,.12); }
+    .button.dark:hover { background: var(--deep); color: var(--soft); }
+    .button.fill { background: var(--deep); color: var(--soft); border-color: var(--deep); }
+    .button.fill:hover { background: transparent; color: var(--deep); }
+
+    .hero-meta {
+      position: absolute;
+      left: clamp(18px, 5vw, 72px);
+      right: clamp(18px, 5vw, 72px);
+      bottom: clamp(22px, 5vh, 64px);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      font-size: clamp(11px, 1.6vw, 14px);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      opacity: .9;
+    }
+
+    section { position: relative; }
+    .inner {
+      width: min(1120px, calc(100% - 44px));
+      margin: 0 auto;
+    }
+
+    .program {
+      padding: clamp(72px, 10vw, 120px) 0 clamp(64px, 8vw, 100px);
+      background: var(--beige);
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(36px, 8vw, 96px);
+      align-items: start;
+    }
+
+    .section-title {
+      margin: 0 0 48px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: .95;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .timeline { display: grid; gap: 0; }
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      align-items: center;
+      min-height: 62px;
+      border-bottom: 1px solid var(--line);
+      font-size: 16px;
+    }
+
+    .timeline-row:first-child { border-top: 1px solid var(--line); }
+    .time { opacity: .92; }
+
+    .venue-card {
+      padding-top: 68px;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .venue-card h3 {
+      margin: 0 0 10px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(28px, 3.2vw, 40px);
+      line-height: 1.08;
+      font-weight: 600;
+    }
+
+    .link-line {
+      display: inline-block;
+      margin-top: 18px;
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 4px;
+    }
+
+    .dress-code {
+      margin-top: 56px;
+      display: grid;
+      gap: 16px;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .dress-code-title {
+      font-weight: 700;
+      margin-bottom: -4px;
+    }
+
+    .swatches {
+      display: inline-flex;
+      gap: 12px;
+      vertical-align: middle;
+      margin-left: 12px;
+      transform: translateY(4px);
+    }
+
+    .swatch {
+      width: 28px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.28);
+    }
+
+    .gallery {
+      background: var(--dark-olive);
+      padding: clamp(76px, 9vw, 116px) 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(22px, 6vw, 88px);
+      align-items: center;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 24px 60px rgba(0,0,0,.14);
+      aspect-ratio: 4 / 5;
+    }
+
+    .gallery-card img {
       width: 100%;
       height: 100%;
-      top: 0;
-      left: 0;
-      border: none;
-      padding: 0;
+      object-fit: cover;
+      filter: grayscale(1) contrast(.95) brightness(1.05);
+      transform: scale(1.02);
+    }
+
+    .gift {
+      padding: clamp(72px, 10vw, 130px) 0 clamp(70px, 8vw, 110px);
+      background: var(--beige);
+    }
+
+    .gift-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(34px, 7vw, 92px);
+      align-items: center;
+    }
+
+    .flower-frame {
+      width: 100%;
+      max-width: 510px;
+      margin-inline: auto;
+      overflow: hidden;
+      background: rgba(255,255,255,.16);
+      box-shadow: 0 18px 48px rgba(0,0,0,.08);
+      aspect-ratio: 1 / .82;
+    }
+
+    .flower-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1) contrast(.95);
+    }
+
+    .gift-text h2 {
+      margin: 0 0 38px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(32px, 4.4vw, 54px);
+      line-height: 1.04;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+
+    .gift-text p {
+      max-width: 640px;
+      margin: 0 0 16px;
+      font-size: clamp(15px, 1.5vw, 18px);
+      line-height: 1.7;
+    }
+
+    .small-note {
+      margin-top: 70px !important;
+      font-size: 14px !important;
+      line-height: 1.65 !important;
+      opacity: .86;
+    }
+
+    .details {
+      padding: clamp(70px, 9vw, 110px) 0;
+      background: var(--beige-light);
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .detail-card {
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px;
+      border: 1px solid rgba(40,37,29,.20);
+      background: rgba(215,207,189,.34);
+    }
+
+    .detail-card span {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      opacity: .72;
+    }
+
+    .detail-card strong {
+      display: block;
+      margin-top: 22px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(27px, 3vw, 38px);
+      line-height: 1.05;
+      font-weight: 600;
+    }
+
+    .countdown {
+      padding: 58px 0 68px;
+      background: var(--dark-olive);
+      color: var(--soft);
+      text-align: center;
+    }
+
+    .countdown-title {
+      margin: 0 0 24px;
+      font-size: 14px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      opacity: .82;
+    }
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      gap: clamp(10px, 2vw, 22px);
+      flex-wrap: wrap;
+    }
+
+    .timer-box {
+      min-width: 108px;
+      padding: 19px 16px 16px;
+      border: 1px solid rgba(255,255,255,.24);
+      background: rgba(255,255,255,.04);
+    }
+
+    .timer-box b {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .timer-box span {
+      display: block;
+      margin-top: 8px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      opacity: .78;
+    }
+
+    .map-rsvp {
+      padding: clamp(72px, 9vw, 112px) 0;
+      background: var(--beige);
+      text-align: center;
+    }
+
+    .map-rsvp h2 {
+      margin: 0 0 16px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .map-rsvp p {
+      margin: 0 auto 28px;
+      max-width: 650px;
+      font-size: clamp(15px, 1.6vw, 18px);
+      line-height: 1.65;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .final {
+      position: relative;
+      min-height: 690px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      color: var(--white);
+      background: #1e1c17;
+      isolation: isolate;
+    }
+
+    .final::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(42,38,28,.13), rgba(42,38,28,.30)), url("assets/couple-final.webp");
+      background-size: cover;
+      background-position: center 38%;
+      z-index: -2;
+      transform: scale(1.02);
+    }
+
+    .final h2 {
       margin: 0;
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(72px, 13vw, 160px);
+      line-height: .9;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-shadow: 0 6px 36px rgba(0,0,0,.20);
+    }
+
+    .footer {
+      padding: 28px 18px;
+      background: var(--deep);
+      color: rgba(255,253,244,.75);
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        min-height: 560px;
+        height: 78svh;
+      }
+
+      .hero::before {
+        background-position: center;
+      }
+
+      .hero-meta {
+        align-items: center;
+        bottom: 24px;
+      }
+
+      .program-grid,
+      .gift-grid,
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .venue-card { padding-top: 0; }
+      .section-title { margin-bottom: 34px; }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        width: min(390px, 100%);
+        margin: 0 auto;
+      }
+
+      .gallery-card:nth-child(2), .gallery-card:nth-child(3) {
+        display: none;
+      }
+
+      .gift-text { text-align: left; }
+      .flower-frame { max-width: 100%; }
+      .small-note { margin-top: 44px !important; }
+      .details-grid { gap: 12px; }
+      .detail-card { min-height: 150px; }
+      .actions { flex-direction: column; align-items: stretch; }
+      .actions .button { width: 100%; }
+      .final { min-height: 560px; }
+      .final::before { background-position: center 42%; }
+    }
+
+    @media (max-width: 520px) {
+      .inner { width: min(100% - 32px, 1120px); }
+      .names { font-size: clamp(52px, 14.5vw, 74px); }
+      .hero-subtitle { font-size: 24px; }
+      .hero-content { padding-inline: 10px; }
+      .button { width: 100%; max-width: 310px; }
+      .hero-meta {
+        font-size: 10px;
+        gap: 10px;
+      }
+      .timeline-row {
+        grid-template-columns: 70px 1fr;
+        font-size: 14px;
+      }
+      .swatches { gap: 8px; margin-left: 6px; }
+      .swatch { width: 23px; }
+      .timer-box { min-width: 74px; padding-inline: 10px; }
+      .timer-box span { font-size: 10px; }
+      .final h2 { font-size: clamp(60px, 18vw, 88px); }
     }
   </style>
 </head>
-
 <body>
-  <div class="canva-site">
-    <iframe
-      loading="lazy"
-      src="https://www.canva.com/design/DAG6za6E6i0/q9-ZUlcJvJ3WrW9bXmtuGg/view?embed"
-      allowfullscreen="allowfullscreen"
-      allow="fullscreen">
-    </iframe>
-  </div>
+  <main class="page">
+    <section class="hero" id="top">
+      <div class="hero-content">
+        <h1 class="names">Baurzhan &amp; Medina</h1>
+        <p class="hero-subtitle">Мы женимся</p>
+        <a class="button light" href="https://wa.me/77027143039?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9C%D1%8B%20%D0%BF%D1%80%D0%B8%D0%B4%D0%B5%D0%BC%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%B0%D0%B4%D1%8C%D0%B1%D1%83%20%D0%91%D0%B0%D1%83%D1%80%D0%B6%D0%B0%D0%BD%D0%B0%20%D0%B8%20%D0%9C%D0%B5%D0%B4%D0%B8%D0%BD%D1%8B" target="_blank" rel="noopener">Пожалуйста, ответьте</a>
+      </div>
+      <div class="hero-meta" aria-label="Дата и место">
+        <span>Август 8, 2026, 16:30</span>
+        <span>Банкетный зал “Император”</span>
+      </div>
+    </section>
+
+    <section class="program" id="program">
+      <div class="inner program-grid">
+        <div>
+          <h2 class="section-title">Программа</h2>
+          <div class="timeline" aria-label="Программа свадьбы">
+            <div class="timeline-row"><span class="time">16:30</span><span>Сбор, welcome drinks</span></div>
+            <div class="timeline-row"><span class="time">17:30</span><span>Церемония</span></div>
+            <div class="timeline-row"><span class="time">18:00</span><span>Начало торжества</span></div>
+          </div>
+
+          <div class="dress-code">
+            <div class="dress-code-title">Дресс код</div>
+            <div>
+              Для женщин:
+              <span class="swatches" aria-label="Цвета дресс-кода">
+                <span class="swatch" style="background:#f8f1ce"></span>
+                <span class="swatch" style="background:#f4e4d5"></span>
+                <span class="swatch" style="background:#e8dfd0"></span>
+                <span class="swatch" style="background:#d6c5df"></span>
+                <span class="swatch" style="background:#d8eff0"></span>
+                <span class="swatch" style="background:#aebca2"></span>
+              </span>
+            </div>
+            <div>Для мужчин: костюмы темных тонов, смокинги</div>
+          </div>
+        </div>
+
+        <aside class="venue-card">
+          <h3>Банкетный зал<br>“Император”</h3>
+          <div>г. Алматы, мкр. Архат, 1304</div>
+          <a class="link-line" href="https://go.2gis.com/lIByh" target="_blank" rel="noopener">Открыть на карте</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="gallery" aria-label="Фотографии пары">
+      <div class="inner gallery-grid">
+        <figure class="gallery-card"><img src="assets/gallery-kiss.webp" alt="Бауржан и Медина" loading="lazy"></figure>
+        <figure class="gallery-card"><img src="assets/gallery-seated.webp" alt="Фотография Бауржана и Медины" loading="lazy"></figure>
+        <figure class="gallery-card"><img src="assets/gallery-standing.webp" alt="Бауржан и Медина вместе" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <section class="gift" id="gift">
+      <div class="inner gift-grid">
+        <div class="flower-frame"><img src="assets/gift-flower.webp" alt="Цветочная деталь" loading="lazy"></div>
+        <div class="gift-text">
+          <h2>Ваше присутствие —<br>лучший подарок для нас!</h2>
+          <p>В этот день нам особенно важно разделить радость с самыми близкими людьми.</p>
+          <p>Самый ценный подарок для нас — видеть вас рядом, ваши улыбки, объятия и тёплые слова.</p>
+          <p>Спасибо, что будете частью нашего особенного дня 🤍</p>
+          <p class="small-note">Если у вас есть пожелания к плейлисту, блюдам или есть аллергия, пожалуйста, напишите нам.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="details" aria-label="Детали свадьбы">
+      <div class="inner details-grid">
+        <div class="detail-card">
+          <span>Дата</span>
+          <strong>8 августа<br>2026</strong>
+        </div>
+        <div class="detail-card">
+          <span>Время</span>
+          <strong>16:30</strong>
+        </div>
+        <div class="detail-card">
+          <span>Место</span>
+          <strong>Банкетный зал<br>“Император”</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="countdown" aria-label="Обратный отсчет">
+      <div class="inner">
+        <p class="countdown-title">До нашей свадьбы осталось</p>
+        <div class="timer" id="timer">
+          <div class="timer-box"><b id="days">—</b><span>дней</span></div>
+          <div class="timer-box"><b id="hours">—</b><span>часов</span></div>
+          <div class="timer-box"><b id="minutes">—</b><span>минут</span></div>
+          <div class="timer-box"><b id="seconds">—</b><span>секунд</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-rsvp" id="rsvp">
+      <div class="inner">
+        <h2>Ждем вас</h2>
+        <p>Пожалуйста, подтвердите присутствие в WhatsApp. Так нам будет легче всё красиво организовать и заранее учесть пожелания гостей.</p>
+        <div class="actions">
+          <a class="button fill" href="https://wa.me/77027143039?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9C%D1%8B%20%D0%BF%D1%80%D0%B8%D0%B4%D0%B5%D0%BC%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%B0%D0%B4%D1%8C%D0%B1%D1%83%20%D0%91%D0%B0%D1%83%D1%80%D0%B6%D0%B0%D0%BD%D0%B0%20%D0%B8%20%D0%9C%D0%B5%D0%B4%D0%B8%D0%BD%D1%8B" target="_blank" rel="noopener">Ответить в WhatsApp</a>
+          <a class="button dark" href="https://go.2gis.com/lIByh" target="_blank" rel="noopener">Открыть маршрут</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="final" aria-label="Финальный блок">
+      <h2>Ждем вас</h2>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Baurzhan & Medina · 08.08.2026
+  </footer>
+
+  <script>
+    const weddingDate = new Date('2026-08-08T16:30:00+05:00').getTime();
+    const units = {
+      days: document.getElementById('days'),
+      hours: document.getElementById('hours'),
+      minutes: document.getElementById('minutes'),
+      seconds: document.getElementById('seconds')
+    };
+
+    function updateTimer() {
+      const now = Date.now();
+      let diff = Math.max(0, weddingDate - now);
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      diff -= days * 1000 * 60 * 60 * 24;
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      diff -= hours * 1000 * 60 * 60;
+      const minutes = Math.floor(diff / (1000 * 60));
+      diff -= minutes * 1000 * 60;
+      const seconds = Math.floor(diff / 1000);
+
+      units.days.textContent = days;
+      units.hours.textContent = String(hours).padStart(2, '0');
+      units.minutes.textContent = String(minutes).padStart(2, '0');
+      units.seconds.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  </script>
 </body>
 </html>
