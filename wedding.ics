@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//baurzhan-medina.kz//Wedding Invitation//RU
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:baurzhan-medina-wedding-20260808@baurzhan-medina.kz
+DTSTAMP:20260519T000000Z
+DTSTART;TZID=Asia/Almaty:20260808T163000
+DTEND;TZID=Asia/Almaty:20260808T233000
+SUMMARY:Свадьба Бауржана и Медины
+LOCATION:Банкетный зал Император, г. Алматы, мкр. Архат, 1304
+DESCRIPTION:Свадьба Бауржана и Медины. Сбор гостей в 16:30. Ссылка на приглашение: https://baurzhan-medina.kz/
+URL:https://baurzhan-medina.kz/
+END:VEVENT
+END:VCALENDAR
