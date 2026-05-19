@@ -4,10 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Свадебное приглашение Бауржана и Медины — 8 августа 2026, 16:30, банкетный зал Император." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Baurzhan & Medina" />
+  <meta property="og:title" content="Baurzhan & Medina — Wedding Invitation" />
+  <meta property="og:description" content="08.08.2026 · 16:30 · Банкетный зал Император" />
+  <meta property="og:url" content="https://baurzhan-medina.kz/" />
+  <meta property="og:image" content="https://baurzhan-medina.kz/assets/gallery-kiss.webp?v=32" />
+  <meta property="og:image:alt" content="Бауржан и Медина" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Baurzhan & Medina — Wedding Invitation" />
+  <meta name="twitter:description" content="08.08.2026 · 16:30 · Банкетный зал Император" />
+  <meta name="twitter:image" content="https://baurzhan-medina.kz/assets/gallery-kiss.webp?v=32" />
+
   <title>Baurzhan & Medina — Wedding Invitation</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/hero-bg.webp" type="image/webp" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
@@ -23,10 +38,7 @@
     }
 
     * { box-sizing: border-box; }
-    html {
-      scroll-behavior: smooth;
-      -webkit-text-size-adjust: 100%;
-    }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body {
       margin: 0;
       background: var(--beige);
@@ -38,14 +50,9 @@
 
     img { max-width: 100%; display: block; }
     a { color: inherit; }
-
     body, button, input, textarea { font-family: "Cormorant Garamond", Georgia, serif; }
 
-    .page {
-      width: 100%;
-      min-height: 100vh;
-      background: var(--beige);
-    }
+    .page { width: 100%; min-height: 100vh; background: var(--beige); }
 
     .hero {
       position: relative;
@@ -126,11 +133,14 @@
       letter-spacing: .08em;
       font-size: 17px;
       line-height: 1.1;
+      cursor: pointer;
+      appearance: none;
       transition: transform .2s ease, background .2s ease, color .2s ease, opacity .2s ease;
       -webkit-tap-highlight-color: transparent;
     }
 
     .button:hover { transform: translateY(-2px); }
+    .button:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
     .button.light { color: var(--white); background: rgba(255,255,255,.06); backdrop-filter: blur(4px); }
     .button.light:hover { background: rgba(255,255,255,.18); }
     .button.dark { color: var(--deep); background: rgba(255,255,255,.12); }
@@ -154,22 +164,10 @@
     }
 
     section { position: relative; }
-    .inner {
-      width: min(1120px, calc(100% - 44px));
-      margin: 0 auto;
-    }
+    .inner { width: min(1120px, calc(100% - 44px)); margin: 0 auto; }
 
-    .program {
-      padding: clamp(72px, 10vw, 120px) 0 clamp(64px, 8vw, 100px);
-      background: var(--beige);
-    }
-
-    .program-grid {
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: clamp(36px, 8vw, 96px);
-      align-items: start;
-    }
+    .program { padding: clamp(72px, 10vw, 120px) 0 clamp(64px, 8vw, 100px); background: var(--beige); }
+    .program-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(36px, 8vw, 96px); align-items: start; }
 
     .section-title {
       margin: 0 0 48px;
@@ -181,317 +179,74 @@
     }
 
     .timeline { display: grid; gap: 0; }
-    .timeline-row {
-      display: grid;
-      grid-template-columns: 92px 1fr;
-      align-items: center;
-      min-height: 62px;
-      border-bottom: 1px solid var(--line);
-      font-size: 18px;
-    }
-
+    .timeline-row { display: grid; grid-template-columns: 92px 1fr; align-items: center; min-height: 62px; border-bottom: 1px solid var(--line); font-size: 18px; }
     .timeline-row:first-child { border-top: 1px solid var(--line); }
     .time { opacity: .92; }
 
-    .venue-card {
-      padding-top: 68px;
-      font-size: 19px;
-      line-height: 1.7;
-    }
+    .venue-card { padding-top: 68px; font-size: 19px; line-height: 1.7; }
+    .venue-card h3 { margin: 0 0 10px; font-size: clamp(28px, 3.2vw, 40px); line-height: 1.08; font-weight: 600; }
+    .link-line { display: inline-block; margin-top: 18px; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 4px; }
 
-    .venue-card h3 {
-      margin: 0 0 10px;
-      font-size: clamp(28px, 3.2vw, 40px);
-      line-height: 1.08;
-      font-weight: 600;
-    }
+    .dress-code { margin-top: 56px; display: grid; gap: 16px; font-size: 17px; line-height: 1.65; }
+    .dress-code-title { font-weight: 700; margin-bottom: -4px; }
+    .swatches { display: inline-flex; gap: 12px; vertical-align: middle; margin-left: 12px; transform: translateY(4px); }
+    .swatch { width: 28px; aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(0,0,0,.06); box-shadow: inset 0 0 0 1px rgba(255,255,255,.28); }
 
-    .link-line {
-      display: inline-block;
-      margin-top: 18px;
-      text-decoration: none;
-      border-bottom: 1px solid currentColor;
-      padding-bottom: 4px;
-    }
+    .gallery { background: var(--dark-olive); padding: clamp(64px, 8vw, 108px) 0; }
+    .gallery .inner { width: min(1380px, calc(100% - 40px)); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 3vw, 48px); align-items: center; }
+    .gallery-card { overflow: hidden; background: rgba(255,255,255,.08); box-shadow: 0 24px 60px rgba(0,0,0,.14); aspect-ratio: 3 / 4; margin: 0; }
+    .gallery-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(.95) brightness(1.05); transform: scale(1.02); transition: transform .6s ease, filter .6s ease; }
+    .gallery-card:hover img { transform: scale(1.06); filter: grayscale(.85) contrast(.98) brightness(1.07); }
 
-    .dress-code {
-      margin-top: 56px;
-      display: grid;
-      gap: 16px;
-      font-size: 17px;
-      line-height: 1.65;
-    }
+    .gallery-hint { display: none; margin: 18px 0 0; color: var(--soft); text-align: center; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; opacity: .78; }
+    .gallery-dots { display: none; justify-content: center; gap: 9px; margin-top: 16px; }
+    .gallery-dot { width: 8px; height: 8px; border: 0; border-radius: 999px; background: rgba(255,253,244,.42); padding: 0; cursor: pointer; transition: width .2s ease, background .2s ease; }
+    .gallery-dot.is-active { width: 24px; background: var(--soft); }
 
-    .dress-code-title {
-      font-weight: 700;
-      margin-bottom: -4px;
-    }
+    .gift { padding: clamp(72px, 10vw, 130px) 0 clamp(70px, 8vw, 110px); background: var(--beige); }
+    .gift-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(34px, 7vw, 92px); align-items: center; }
+    .flower-frame { width: 100%; max-width: 510px; margin-inline: auto; overflow: hidden; background: rgba(255,255,255,.16); box-shadow: 0 18px 48px rgba(0,0,0,.08); aspect-ratio: 1 / .82; }
+    .flower-frame img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(.95); }
+    .gift-text h2 { margin: 0 0 38px; font-size: clamp(32px, 4.4vw, 54px); line-height: 1.04; font-weight: 600; letter-spacing: .02em; }
+    .gift-text p { max-width: 640px; margin: 0 0 16px; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.7; }
+    .small-note { margin-top: 70px !important; font-size: 16px !important; line-height: 1.65 !important; opacity: .86; }
 
-    .swatches {
-      display: inline-flex;
-      gap: 12px;
-      vertical-align: middle;
-      margin-left: 12px;
-      transform: translateY(4px);
-    }
+    .countdown { padding: 58px 0 68px; background: var(--dark-olive); color: var(--soft); text-align: center; }
+    .countdown-title { margin: 0 0 24px; font-size: 14px; letter-spacing: .18em; text-transform: uppercase; opacity: .82; }
+    .timer { display: flex; justify-content: center; gap: clamp(10px, 2vw, 22px); flex-wrap: wrap; }
+    .timer-box { min-width: 108px; padding: 19px 16px 16px; border: 1px solid rgba(255,255,255,.24); background: rgba(255,255,255,.04); }
+    .timer-box b { display: block; font-size: clamp(34px, 5vw, 54px); line-height: 1; font-weight: 500; }
+    .timer-box span { display: block; margin-top: 8px; font-size: 12px; text-transform: uppercase; letter-spacing: .13em; opacity: .78; }
 
-    .swatch {
-      width: 28px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      border: 1px solid rgba(0,0,0,.06);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.28);
-    }
+    .map-rsvp { padding: clamp(72px, 9vw, 112px) 0; background: var(--beige); text-align: center; }
+    .map-rsvp h2 { margin: 0 0 16px; font-size: clamp(38px, 6vw, 68px); line-height: 1; font-weight: 500; }
+    .map-rsvp p { margin: 0 auto 28px; max-width: 650px; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.65; }
+    .actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+    .copy-status { min-height: 22px; margin: 18px 0 0; font-size: 16px; opacity: .82; }
 
-    .gallery {
-      background: var(--dark-olive);
-      padding: clamp(64px, 8vw, 108px) 0;
-    }
+    .final { position: relative; min-height: 690px; display: grid; place-items: center; overflow: hidden; color: var(--white); background: #1e1c17; isolation: isolate; }
+    .final::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(42,38,28,.13), rgba(42,38,28,.30)), url("assets/couple-final.webp?v=31"); background-size: cover; background-position: center 38%; z-index: -2; transform: scale(1.02); }
+    .final h2 { margin: 0; text-align: center; font-size: clamp(72px, 13vw, 160px); line-height: .9; font-weight: 700; letter-spacing: .02em; text-shadow: 0 6px 36px rgba(0,0,0,.20); }
+    .footer { padding: 28px 18px; background: var(--deep); color: rgba(255,253,244,.75); text-align: center; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
 
-    .gallery .inner {
-      width: min(1380px, calc(100% - 40px));
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: clamp(16px, 3vw, 48px);
-      align-items: center;
-    }
-
-    .gallery-card {
-      overflow: hidden;
-      background: rgba(255,255,255,.08);
-      box-shadow: 0 24px 60px rgba(0,0,0,.14);
-      aspect-ratio: 3 / 4;
-      margin: 0;
-    }
-
-    .gallery-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(1) contrast(.95) brightness(1.05);
-      transform: scale(1.02);
-    }
-
-    .gift {
-      padding: clamp(72px, 10vw, 130px) 0 clamp(70px, 8vw, 110px);
-      background: var(--beige);
-    }
-
-    .gift-grid {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: clamp(34px, 7vw, 92px);
-      align-items: center;
-    }
-
-    .flower-frame {
-      width: 100%;
-      max-width: 510px;
-      margin-inline: auto;
-      overflow: hidden;
-      background: rgba(255,255,255,.16);
-      box-shadow: 0 18px 48px rgba(0,0,0,.08);
-      aspect-ratio: 1 / .82;
-    }
-
-    .flower-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(1) contrast(.95);
-    }
-
-    .gift-text h2 {
-      margin: 0 0 38px;
-      font-size: clamp(32px, 4.4vw, 54px);
-      line-height: 1.04;
-      font-weight: 600;
-      letter-spacing: .02em;
-    }
-
-    .gift-text p {
-      max-width: 640px;
-      margin: 0 0 16px;
-      font-size: clamp(17px, 1.5vw, 20px);
-      line-height: 1.7;
-    }
-
-    .small-note {
-      margin-top: 70px !important;
-      font-size: 16px !important;
-      line-height: 1.65 !important;
-      opacity: .86;
-    }
-
-    .countdown {
-      padding: 58px 0 68px;
-      background: var(--dark-olive);
-      color: var(--soft);
-      text-align: center;
-    }
-
-    .countdown-title {
-      margin: 0 0 24px;
-      font-size: 14px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      opacity: .82;
-    }
-
-    .timer {
-      display: flex;
-      justify-content: center;
-      gap: clamp(10px, 2vw, 22px);
-      flex-wrap: wrap;
-    }
-
-    .timer-box {
-      min-width: 108px;
-      padding: 19px 16px 16px;
-      border: 1px solid rgba(255,255,255,.24);
-      background: rgba(255,255,255,.04);
-    }
-
-    .timer-box b {
-      display: block;
-      font-size: clamp(34px, 5vw, 54px);
-      line-height: 1;
-      font-weight: 500;
-    }
-
-    .timer-box span {
-      display: block;
-      margin-top: 8px;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .13em;
-      opacity: .78;
-    }
-
-    .map-rsvp {
-      padding: clamp(72px, 9vw, 112px) 0;
-      background: var(--beige);
-      text-align: center;
-    }
-
-    .map-rsvp h2 {
-      margin: 0 0 16px;
-      font-size: clamp(38px, 6vw, 68px);
-      line-height: 1;
-      font-weight: 500;
-    }
-
-    .map-rsvp p {
-      margin: 0 auto 28px;
-      max-width: 650px;
-      font-size: clamp(17px, 1.6vw, 20px);
-      line-height: 1.65;
-    }
-
-    .actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
-    }
-
-    .final {
-      position: relative;
-      min-height: 690px;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      color: var(--white);
-      background: #1e1c17;
-      isolation: isolate;
-    }
-
-    .final::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(rgba(42,38,28,.13), rgba(42,38,28,.30)), url("assets/couple-final.webp?v=31");
-      background-size: cover;
-      background-position: center 38%;
-      z-index: -2;
-      transform: scale(1.02);
-    }
-
-    .final h2 {
-      margin: 0;
-      text-align: center;
-      font-size: clamp(72px, 13vw, 160px);
-      line-height: .9;
-      font-weight: 700;
-      letter-spacing: .02em;
-      text-shadow: 0 6px 36px rgba(0,0,0,.20);
-    }
-
-    .footer {
-      padding: 28px 18px;
-      background: var(--deep);
-      color: rgba(255,253,244,.75);
-      text-align: center;
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 800px) {
-      .hero {
-        min-height: 560px;
-        height: 78svh;
-      }
-
-      .hero::before {
-        background-position: center;
-      }
-
-      .hero-meta {
-        align-items: center;
-        bottom: 24px;
-      }
-
-      .program-grid,
-      .gift-grid {
-        grid-template-columns: 1fr;
-      }
-
+      .hero { min-height: 560px; height: 78svh; }
+      .hero::before { background-position: center; }
+      .hero-meta { align-items: center; bottom: 24px; }
+      .program-grid, .gift-grid { grid-template-columns: 1fr; }
       .venue-card { padding-top: 0; }
       .section-title { margin-bottom: 34px; }
-
-      .gallery {
-        padding: 48px 0;
-      }
-
-      .gallery .inner {
-        width: 100%;
-      }
-
-      .gallery-grid {
-        display: flex;
-        gap: 14px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        padding: 0 16px 10px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-
-      .gallery-grid::-webkit-scrollbar {
-        display: none;
-      }
-
-      .gallery-card {
-        flex: 0 0 min(82vw, 380px);
-        aspect-ratio: 3 / 4;
-        scroll-snap-align: center;
-      }
-
+      .gallery { padding: 48px 0; }
+      .gallery .inner { width: 100%; }
+      .gallery-grid { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 16px 10px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .gallery-grid::-webkit-scrollbar { display: none; }
+      .gallery-card { flex: 0 0 min(82vw, 380px); aspect-ratio: 3 / 4; scroll-snap-align: center; }
+      .gallery-hint { display: block; }
+      .gallery-dots { display: flex; }
       .gift-text { text-align: left; }
       .flower-frame { max-width: 100%; }
       .small-note { margin-top: 44px !important; }
@@ -503,36 +258,30 @@
 
     @media (max-width: 520px) {
       .inner { width: min(100% - 32px, 1120px); }
-      .hero {
-        min-height: 100svh;
-        height: 100svh;
-      }
+      .hero { min-height: 100svh; height: 100svh; }
       .names { font-size: clamp(52px, 14.5vw, 74px); }
       .hero-subtitle { font-size: 24px; }
       .hero-content { padding-inline: 10px; }
       .button { width: 100%; max-width: 310px; }
-      .hero-meta {
-        font-size: 10px;
-        gap: 10px;
-      }
+      .hero-meta { font-size: 10px; gap: 10px; }
       .program { padding: 54px 0 58px; }
       .gift { padding: 58px 0 62px; }
       .map-rsvp { padding: 58px 0 64px; }
-      .timeline-row {
-        grid-template-columns: 70px 1fr;
-        font-size: 14px;
-      }
+      .timeline-row { grid-template-columns: 70px 1fr; font-size: 14px; }
       .swatches { gap: 8px; margin-left: 6px; }
       .swatch { width: 23px; }
-      .gallery-card {
-        flex-basis: 84vw;
-      }
+      .gallery-card { flex-basis: 84vw; }
       .timer-box { min-width: 74px; padding-inline: 10px; }
       .timer-box span { font-size: 10px; }
-      .final {
-        min-height: 72svh;
-      }
+      .final { min-height: 72svh; }
       .final h2 { font-size: clamp(60px, 18vw, 88px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+      .reveal { opacity: 1; transform: none; }
+      .gallery-card img { transform: none; }
     }
   </style>
 </head>
@@ -550,7 +299,7 @@
       </div>
     </section>
 
-    <section class="program" id="program">
+    <section class="program reveal" id="program">
       <div class="inner program-grid">
         <div>
           <h2 class="section-title">Программа</h2>
@@ -559,97 +308,62 @@
             <div class="timeline-row"><span class="time">17:30</span><span>Церемония</span></div>
             <div class="timeline-row"><span class="time">18:00</span><span>Начало торжества</span></div>
           </div>
-
           <div class="dress-code">
             <div class="dress-code-title">Дресс код</div>
-            <div>
-              Для женщин:
-              <span class="swatches" aria-label="Цвета дресс-кода">
-                <span class="swatch" style="background:#f8f1ce"></span>
-                <span class="swatch" style="background:#f4e4d5"></span>
-                <span class="swatch" style="background:#e8dfd0"></span>
-                <span class="swatch" style="background:#d6c5df"></span>
-                <span class="swatch" style="background:#d8eff0"></span>
-                <span class="swatch" style="background:#aebca2"></span>
-              </span>
-            </div>
+            <div>Для женщин:<span class="swatches" aria-label="Цвета дресс-кода"><span class="swatch" style="background:#f8f1ce"></span><span class="swatch" style="background:#f4e4d5"></span><span class="swatch" style="background:#e8dfd0"></span><span class="swatch" style="background:#d6c5df"></span><span class="swatch" style="background:#d8eff0"></span><span class="swatch" style="background:#aebca2"></span></span></div>
             <div>Для мужчин: костюмы темных тонов, смокинги</div>
           </div>
         </div>
-
-        <aside class="venue-card">
-          <h3>Банкетный зал<br>“Император”</h3>
-          <div>г. Алматы, мкр. Архат, 1304</div>
-          <a class="link-line" href="https://go.2gis.com/lIByh" target="_blank" rel="noopener">Открыть на карте</a>
-        </aside>
+        <aside class="venue-card"><h3>Банкетный зал<br>“Император”</h3><div>г. Алматы, мкр. Архат, 1304</div><a class="link-line" href="https://go.2gis.com/lIByh" target="_blank" rel="noopener">Открыть на карте</a></aside>
       </div>
     </section>
 
-    <section class="gallery" aria-label="Фотографии пары">
-      <div class="inner gallery-grid">
-        <figure class="gallery-card"><img src="assets/gallery-seated.webp" alt="Фотография Бауржана и Медины" loading="lazy"></figure>
-        <figure class="gallery-card"><img src="assets/gallery-kiss.webp" alt="Бауржан и Медина" loading="lazy"></figure>
-        <figure class="gallery-card"><img src="assets/gallery-standing.webp" alt="Бауржан и Медина вместе" loading="lazy"></figure>
+    <section class="gallery reveal" aria-label="Фотографии пары">
+      <div class="inner gallery-grid" id="galleryTrack">
+        <figure class="gallery-card"><img src="assets/gallery-seated.webp" alt="Фотография Бауржана и Медины" loading="lazy" decoding="async" sizes="(max-width: 800px) 84vw, 31vw"></figure>
+        <figure class="gallery-card"><img src="assets/gallery-kiss.webp" alt="Бауржан и Медина" loading="lazy" decoding="async" sizes="(max-width: 800px) 84vw, 31vw"></figure>
+        <figure class="gallery-card"><img src="assets/gallery-standing.webp" alt="Бауржан и Медина вместе" loading="lazy" decoding="async" sizes="(max-width: 800px) 84vw, 31vw"></figure>
       </div>
+      <p class="gallery-hint">Листайте фото</p>
+      <div class="gallery-dots" aria-label="Навигация по фото"><button class="gallery-dot is-active" type="button" aria-label="Фото 1"></button><button class="gallery-dot" type="button" aria-label="Фото 2"></button><button class="gallery-dot" type="button" aria-label="Фото 3"></button></div>
     </section>
 
-    <section class="gift" id="gift">
+    <section class="gift reveal" id="gift">
       <div class="inner gift-grid">
-        <div class="flower-frame"><img src="assets/gift-flower.webp" alt="Цветочная деталь" loading="lazy"></div>
-        <div class="gift-text">
-          <h2>Ваше присутствие —<br>лучший подарок для нас!</h2>
-          <p>В этот день нам особенно важно разделить радость с самыми близкими людьми.</p>
-          <p>Самый ценный подарок для нас — видеть вас рядом, ваши улыбки, объятия и тёплые слова.</p>
-          <p>Спасибо, что будете частью нашего особенного дня 🤍</p>
-        </div>
+        <div class="flower-frame"><img src="assets/gift-flower.webp" alt="Цветочная деталь" loading="lazy" decoding="async"></div>
+        <div class="gift-text"><h2>Ваше присутствие —<br>лучший подарок для нас!</h2><p>В этот день нам особенно важно разделить радость с самыми близкими людьми.</p><p>Самый ценный подарок для нас — видеть вас рядом, ваши улыбки, объятия и тёплые слова.</p><p>Спасибо, что будете частью нашего особенного дня 🤍</p></div>
       </div>
     </section>
 
-    <section class="countdown" aria-label="Обратный отсчет">
-      <div class="inner">
-        <p class="countdown-title">До нашей свадьбы осталось</p>
-        <div class="timer" id="timer">
-          <div class="timer-box"><b id="days">—</b><span>дней</span></div>
-          <div class="timer-box"><b id="hours">—</b><span>часов</span></div>
-          <div class="timer-box"><b id="minutes">—</b><span>минут</span></div>
-          <div class="timer-box"><b id="seconds">—</b><span>секунд</span></div>
-        </div>
-      </div>
+    <section class="countdown reveal" aria-label="Обратный отсчет">
+      <div class="inner"><p class="countdown-title">До нашей свадьбы осталось</p><div class="timer" id="timer"><div class="timer-box"><b id="days">—</b><span>дней</span></div><div class="timer-box"><b id="hours">—</b><span>часов</span></div><div class="timer-box"><b id="minutes">—</b><span>минут</span></div><div class="timer-box"><b id="seconds">—</b><span>секунд</span></div></div></div>
     </section>
 
-    <section class="map-rsvp" id="rsvp">
+    <section class="map-rsvp reveal" id="rsvp">
       <div class="inner">
         <h2>Ждем вас</h2>
         <p>Пожалуйста, подтвердите присутствие в WhatsApp. Так нам будет легче всё красиво организовать и заранее учесть пожелания гостей.</p>
         <div class="actions">
           <a class="button fill" href="https://wa.me/77027143039?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9C%D1%8B%20%D0%BF%D1%80%D0%B8%D0%B4%D0%B5%D0%BC%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%B0%D0%B4%D1%8C%D0%B1%D1%83%20%D0%91%D0%B0%D1%83%D1%80%D0%B6%D0%B0%D0%BD%D0%B0%20%D0%B8%20%D0%9C%D0%B5%D0%B4%D0%B8%D0%BD%D1%8B" target="_blank" rel="noopener">Ответить в WhatsApp</a>
+          <a class="button dark" href="wedding.ics" download>Добавить в календарь</a>
           <a class="button dark" href="https://go.2gis.com/lIByh" target="_blank" rel="noopener">Открыть маршрут</a>
+          <button class="button dark" type="button" id="copyAddress" data-address="г. Алматы, мкр. Архат, 1304, банкетный зал Император">Скопировать адрес</button>
+          <button class="button dark" type="button" id="shareInvite">Поделиться</button>
         </div>
+        <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
       </div>
     </section>
 
-    <section class="final" aria-label="Финальный блок">
-      <h2>Ждем вас</h2>
-    </section>
+    <section class="final" aria-label="Финальный блок"><h2>Ждем вас</h2></section>
   </main>
-
-  <footer class="footer">
-    Baurzhan & Medina · 08.08.2026
-  </footer>
+  <footer class="footer">Baurzhan & Medina · 08.08.2026</footer>
 
   <script>
     const weddingDate = new Date('2026-08-08T16:30:00+05:00').getTime();
-    const units = {
-      days: document.getElementById('days'),
-      hours: document.getElementById('hours'),
-      minutes: document.getElementById('minutes'),
-      seconds: document.getElementById('seconds')
-    };
-
+    const units = { days: document.getElementById('days'), hours: document.getElementById('hours'), minutes: document.getElementById('minutes'), seconds: document.getElementById('seconds') };
     function updateTimer() {
       const now = Date.now();
       let diff = Math.max(0, weddingDate - now);
-
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       diff -= days * 1000 * 60 * 60 * 24;
       const hours = Math.floor(diff / (1000 * 60 * 60));
@@ -657,15 +371,54 @@
       const minutes = Math.floor(diff / (1000 * 60));
       diff -= minutes * 1000 * 60;
       const seconds = Math.floor(diff / 1000);
-
       units.days.textContent = days;
       units.hours.textContent = String(hours).padStart(2, '0');
       units.minutes.textContent = String(minutes).padStart(2, '0');
       units.seconds.textContent = String(seconds).padStart(2, '0');
     }
-
     updateTimer();
     setInterval(updateTimer, 1000);
+
+    const revealItems = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.14 });
+      revealItems.forEach((item) => observer.observe(item));
+    } else { revealItems.forEach((item) => item.classList.add('is-visible')); }
+
+    const galleryTrack = document.getElementById('galleryTrack');
+    const galleryCards = Array.from(document.querySelectorAll('.gallery-card'));
+    const galleryDots = Array.from(document.querySelectorAll('.gallery-dot'));
+    function setActiveGalleryDot(index) { galleryDots.forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === index)); }
+    galleryDots.forEach((dot, index) => { dot.addEventListener('click', () => { galleryCards[index]?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); setActiveGalleryDot(index); }); });
+    if (galleryTrack && galleryCards.length) {
+      galleryTrack.addEventListener('scroll', () => {
+        const trackCenter = galleryTrack.scrollLeft + galleryTrack.clientWidth / 2;
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+        galleryCards.forEach((card, index) => {
+          const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+          const distance = Math.abs(trackCenter - cardCenter);
+          if (distance < closestDistance) { closestDistance = distance; closestIndex = index; }
+        });
+        setActiveGalleryDot(closestIndex);
+      }, { passive: true });
+    }
+
+    const copyButton = document.getElementById('copyAddress');
+    const shareButton = document.getElementById('shareInvite');
+    const copyStatus = document.getElementById('copyStatus');
+    async function copyText(text, message) {
+      try { await navigator.clipboard.writeText(text); copyStatus.textContent = message; }
+      catch (error) { copyStatus.textContent = text; }
+      window.setTimeout(() => { copyStatus.textContent = ''; }, 3000);
+    }
+    copyButton?.addEventListener('click', () => { copyText(copyButton.dataset.address, 'Адрес скопирован'); });
+    shareButton?.addEventListener('click', async () => {
+      const shareData = { title: 'Baurzhan & Medina — Wedding Invitation', text: '08.08.2026 · 16:30 · Банкетный зал Император', url: 'https://baurzhan-medina.kz/' };
+      if (navigator.share) {
+        try { await navigator.share(shareData); } catch (error) {}
+      } else { copyText(shareData.url, 'Ссылка скопирована'); }
+    });
   </script>
 </body>
 </html>
